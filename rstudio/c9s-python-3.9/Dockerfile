@@ -52,6 +52,9 @@ RUN dnf install -y libsodium-devel.x86_64 libgit2-devel.x86_64 libcurl-devel har
     && dnf clean all && rm -rf /var/cache/yum
 RUN R -e "install.packages('Rcpp')"
 
+ARG NEEDPACKAGE
+RUN if [ -n "$NEEDPACKAGE" ]; then R -e "install.packages(c('tidyverse', 'tidymodels', 'plumber', 'vetiver', 'devtools'))" ; else echo "The variable NEEDPACKAGE not set -> skipping installation of extra R packages"; fi
+
 # Install NGINX to proxy RStudio and pass probes check 
 ENV NGINX_VERSION=1.22 \
     NGINX_SHORT_VER=122 \

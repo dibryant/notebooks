@@ -1,0 +1,13 @@
+ kind: "DockerImage"
+        name: "quay.io/modh/odh-base-rhel9:base-rhel9-python-3.9-20240131-378dafd"
+      dockerfilePath: "rstudio/rhel9-python-3.9/Dockerfile"
+      env:
+        - name: NEEDPACKAGES
+          valuefrom:
+            configMapKeyRef:
+              name: rstudio-req
+              key: NEEDPACKAGES
+              optional: true
+      volumes:
+        - name: secret-mvn
+          source:
