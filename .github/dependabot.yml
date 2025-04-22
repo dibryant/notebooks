@@ -6,53 +6,18 @@
 version: 2
 updates:
   - package-ecosystem: pip
-  directory: "/jupyter" # Path to the directory containing Pipfile and Pipfile.lock
+  directory: "/"
   schedule:
     interval: weekly
   open-pull-requests-limit: 5
-  commit-message:
-    prefix: "pip upgrade"
   allow:
     - dependency-type: all
-  insecure-external-code: false
-    - package-ecosystem: pip
-  directory: "/rstudio" # Path to the directory containing Pipfile and Pipfile.lock
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 5
-  commit-message:
-    prefix: "pip upgrade"
-  allow:
-    - dependency-type: all
-  insecure-external-code: false
-    - package-ecosystem: pip
-  directory: "/runtimes" # Path to the directory containing Pipfile and Pipfile.lock
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 5
-  commit-message:
-    prefix: "pip upgrade"
-  allow:
-    - dependency-type: all
-  insecure-external-code: false
-    - package-ecosystem: pip
-  directory: "/cuda" # Path to the directory containing Pipfile and Pipfile.lock
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 5
-  commit-message:
-    prefix: "pip upgrade"
-  allow:
-    - dependency-type: all
-  insecure-external-code: false
-    - package-ecosystem: pip
-  directory: "/codeserver" # Path to the directory containing Pipfile and Pipfile.lock
-  schedule:
-    interval: weekly
-  open-pull-requests-limit: 5
-  commit-message:
-    prefix: "pip upgrade"
-  allow:
-    - dependency-type: all
-  insecure-external-code: false
-  
+  ignore:
+    - dependency-name: "*"
+      source:
+        file: "requirements.txt"
+  labels:
+    - "CVE"
+    - "severity"
+  assignees:
+    - "dibryant"
