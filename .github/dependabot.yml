@@ -12,13 +12,11 @@ updates:
     open-pull-requests-limit: 1
     allow:
       - dependency-type: all
-    # Proper way to ignore packages from requirements.txt
     ignore:
       - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-    # These files will NOT be scanned for dependencies
-    ignore-files:
-      - "requirements.txt"
+        source:
+          directory: "/"
+          file: "requirements.txt"
     labels:
       - "dependencies"
       - "security-vulnerability"
@@ -28,4 +26,3 @@ updates:
     commit-message:
       prefix: "pip"
       include: "scope"
-
