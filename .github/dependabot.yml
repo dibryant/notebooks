@@ -16,6 +16,7 @@ updates:
       - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
         source:
+          directory: "/"
           file: "requirements.txt"
     labels:
       - "dependencies"
