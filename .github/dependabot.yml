@@ -14,9 +14,7 @@ updates:
       - dependency-type: all
     ignore:
       - dependency-name: "*"
-        source:
-          directory: "/"
-          file: "requirements.txt"
+        update-types: ["version-update:semver-patch"]
     labels:
       - "dependencies"
       - "security-vulnerability"
