@@ -9,6 +9,8 @@ updates:
     directory: "/"
     schedule:
       interval: daily
+    ignore-patterns:
+      - "requirements.txt"
     open-pull-requests-limit: 1
     allow:
       - dependency-type: all
